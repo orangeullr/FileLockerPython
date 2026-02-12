@@ -1,0 +1,50 @@
+{% extends 'layouts/main.html' %} 
+{% block title %}Encrypt{% endblock %} 
+{% block content %}
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url_for('home') }}">AES 250 CBC ENCDEC</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ url_for('encrypt') }}">Encrypt</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('decrypt') }}">Decrypt</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+      <div class="col-md-8">
+          <div class="card shadow">
+              <div class="card-header bg-warning text-dark">
+                  <h4 class="mb-0">Decryptor</h4>
+              </div>
+              <div class="card-body">
+                <form action="/encryptor" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="lockfile" class="form-label">Select File to Encrypt</label>
+                        <input class="form-control" type="file" id="file" name="file" required>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" value="Upload" class="btn btn-success">Submit</button>
+                    </div>
+                </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}
